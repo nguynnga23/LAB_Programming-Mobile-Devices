@@ -43,3 +43,4 @@ const checkWinner = (avgDolphins, avgKoalas) => {
 checkWinner(dolpinsScoreAverage1, koalasScoreAverage1);
 checkWinner(dolpinsScoreAverage2, koalasScoreAverage2);
 // 5. Ignore draws this time
+
