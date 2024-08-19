@@ -6,7 +6,7 @@ let dolpinsScore2 = [85, 54, 41];
 let koalasScore2 = [23, 34, 27];
 
 // 1. Create an arrow function 'calcAverage' to calculate the average of 3 scores
-const calcAverage = (arrayScore) => {
+let calcAverage = (arrayScore) => {
     let sum = 0;
     for(let i = 0; i < arrayScore.length; i++){
         sum += arrayScore[i];
