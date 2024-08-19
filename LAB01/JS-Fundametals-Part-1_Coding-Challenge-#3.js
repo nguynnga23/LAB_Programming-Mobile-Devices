@@ -68,3 +68,14 @@ determineWinner(dolpinsScoreBonus1Average, koalasScoreBonus1Average);
 // 4. Bonus 2: Minimum score also applies to a draw! So a draw only happens when
 // both teams have the same score and both have a score greater or equal 100
 // points. Otherwise, no team wins the trophy
+function determineDraw(a, b){
+    if(a === b && a >= 100 && b >= 100){
+        console.log("Draw !!!")
+    } else {
+        console.log("No team wins the trophy !")
+    }
+}
+determineDraw(dolpinsScoreBonus2Average, koalasScoreBonus2Average);
+
+
+
