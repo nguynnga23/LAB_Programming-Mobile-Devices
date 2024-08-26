@@ -17,6 +17,7 @@ printForecast(data1);
 printForecast(data2);
 
 // 2. Use the problem-solving framework: Understand the problem and break it up into sub-problems!
+
 /*
 1. Understand the Problem
 2. Plan the Solution
