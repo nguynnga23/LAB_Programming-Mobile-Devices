@@ -4,9 +4,12 @@ export default function Index() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>
-          justifyContent: 'flex-end'
+          justifyContent: 'space-between'
       </Text>
       <Image source={{uri:"https://picsum.photos/200"}} style={{height:150, width:150}}/>
+      <Image source={{uri:"https://picsum.photos/200"}} style={{height:150, width:150}}/>
+      <Image source={{uri:"https://picsum.photos/200"}} style={{height:150, width:150}}/>
+
     </View>
   );
 }
@@ -16,7 +19,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
   },
   title:{
     fontSize: 20,
