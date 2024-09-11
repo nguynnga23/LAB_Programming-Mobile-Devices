@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "#D8EFDF"
     },
+   
     // Header
     headerTitle:{ // wrapper
         flex: 1,

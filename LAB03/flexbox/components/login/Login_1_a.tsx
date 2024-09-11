@@ -38,9 +38,6 @@ const Login_1_a = () => {
 }
   
 const styles = StyleSheet.create({
-// linearGradient:{
-
-// },
 container:{
   flex: 1,
   backgroundColor : "#00CCF9",
