@@ -8,7 +8,6 @@ import { faEnvelope} from '@fortawesome/free-regular-svg-icons';
 
 const ForgetPassword_1_b = () => {
     return (
-       
         <View style={styles.container}>
             <LinearGradient
               // Background Linear Gradient
