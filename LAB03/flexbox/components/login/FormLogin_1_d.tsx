@@ -36,7 +36,6 @@ const FormLogin_1_d = () =>{
             </View>
             <View style = {styles.socialButton}>
                 <TouchableOpacity style = {[styles.buttonFacebook, styles.button]}>
-
                         <FontAwesomeIcon  icon={faFacebookF} color= {"#fff"} size= {30} />
                 </TouchableOpacity>
                 <TouchableOpacity style = {[styles.buttonZalo, styles.button]}>
