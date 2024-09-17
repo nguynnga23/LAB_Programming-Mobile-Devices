@@ -5,6 +5,8 @@ import FormLogin_XMEye from "@/components/login/FormLogin_XMEye";
 import Login_1_a from "@/components/login/Login_1_a";
 import RegisterForm_1_e from "@/components/register/RegisterForm_1_e";
 import VerificationForm_1_c from "@/components/verification/VerificationForm_1_c";
+import TikiOk from "@/components/tiki/TikiOk";
+
 import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 // import Login from "@/components/login/login";
 export default function Index() {
@@ -14,7 +16,8 @@ export default function Index() {
       {/* <FormLogin_XMEye/> */}
       {/* <ForgetPassword_1_b/> */}
       {/* <RegisterForm_1_e/> */}
-      <VerificationForm_1_c/>
+      {/* <VerificationForm_1_c/> */}
+      <TikiOk/>
     </View>
   );
 }
