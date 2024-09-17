@@ -4,7 +4,8 @@ import PasswordGenerator_2_c from "../components/password/PasswordGenerator_2_c"
 export default function Index() {
   return (
     <View style={styles.container}>
-      <PasswordGenerator_2_c/>
+      {/* <PasswordGenerator_2_c/> */}
+      <TikiOk/>
     </View>
   );
 }

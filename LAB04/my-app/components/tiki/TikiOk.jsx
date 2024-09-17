@@ -1,10 +1,6 @@
 import React from "react";
 import {useState} from "react";
-import { LinearGradient } from 'expo-linear-gradient';
 import { View, StyleSheet, TouchableOpacity, Text, TextInput, Image } from "react-native";
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faLock } from '@fortawesome/free-solid-svg-icons';
-import { faEnvelope} from '@fortawesome/free-regular-svg-icons';
 
 
 const TikiOk = () => {
