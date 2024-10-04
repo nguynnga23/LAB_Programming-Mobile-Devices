@@ -8,7 +8,16 @@ export default function Page() {
   const Tab = createBottomTabNavigator();
   return (
     <NavigationContainer independent={true}>
-      <Tab.Navigator>
+      <Tab.Navigator
+      screenOptions={{
+        tabBarStyle: {
+          backgroundColor: '#1BA9FF', // Màu nền của tabBar
+          borderTopWidth: 0, // Bỏ viền trên của tabBar
+          height: 45
+        },
+        tabBarActiveTintColor: 'black', // Màu khi tab được chọn
+        tabBarInactiveTintColor: '#fff', // Màu khi tab không được chọn
+      }}>
         <Tab.Screen 
           name = "Home"
           component={ChatHome}
