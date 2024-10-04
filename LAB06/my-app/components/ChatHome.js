@@ -1,5 +1,5 @@
-import { Text, View, Image, TouchableOpacity, SafeAreaView, FlatList } from "react-native";
-
+import { Text, View, Image, TouchableOpacity, SafeAreaView, FlatList, ScrollView } from "react-native";
+import Header from "./common/Header.js";
 const DATA = [
   {
     id: "1",
@@ -48,15 +48,30 @@ const DATA = [
     image_path: require("../assets/images/lab04_a/hieu_long_con_tre.png"),
     product_name: "Ca nấu lẩu, nấu mì mini..",
     shop_name: "Shop Devang"
-  }
+  },
+  {
+    id: "9",
+    image_path: require("../assets/images/lab04_a/lanh_dao_gian_don.png"),
+    product_name: "Ca nấu lẩu, nấu mì mini..",
+    shop_name: "Shop Devang"
+  },
+  {
+    id: "10",
+    image_path: require("../assets/images/lab04_a/lanh_dao_gian_don.png"),
+    product_name: "Ca nấu lẩu, nấu mì mini..",
+    shop_name: "Shop Devang"
+  },
 ]
 
 const Item = ({ product_name, image_path, shop_name })=>(
   <View style={{
     flex: 3,
     flexDirection: "row",
-    justifyContent: "space-around",
-    backgroundColor: "#fff"
+    justifyContent: "space-between",
+    backgroundColor: "#fff",
+    borderBottomWidth: 1,
+    borderBottomColor: "#C4C4C4",
+    paddingHorizontal: 20
   }}>
     <View>
       <Image source={image_path} style={{}} />
@@ -85,20 +100,31 @@ const Item = ({ product_name, image_path, shop_name })=>(
   </View>
 );
 
-export default function Index() {
+export default function ChatHome() {
   return (
-    <SafeAreaView style={{
+    <View style={{
       flex: 1,
+      backgroundColor: "#fff"
       }}>
-      <Text style={{
-        flex: 1,
-        textAlign: "center",
-      }}>Bạn có thắc mắc với sản phẩm vừa xem. Đừng ngại Chat với shop!</Text>
-      <FlatList
-        data={DATA}
-        renderItem={({item}) => <Item product_name={item.product_name} image_path={item.image_path} shop_name={item.shop_name} />}
-        keyExtractor={item => item.id}
-      />
-    </SafeAreaView>
+        <ScrollView>
+          <Text style={{
+            textAlign: "center",
+            backgroundColor: "#fff",
+            paddingHorizontal: 10,
+            paddingVertical: 10
+          }}>
+            Bạn có thắc mắc với sản phẩm vừa xem. Đừng ngại Chat với shop!
+          </Text>
+          <FlatList
+            style={{
+              flex: 10, 
+              paddingHorizontal: 15
+            }}
+            data={DATA}
+            renderItem={({item}) => <Item product_name={item.product_name} image_path={item.image_path} shop_name={item.shop_name} />}
+            keyExtractor={item => item.id}
+          />
+        </ScrollView>
+    </View>
   );
 }
