@@ -3,61 +3,61 @@ import Header from "./common/Header.js";
 const DATA = [
   {
     id: "1",
-    image_path: require("../assets/images/lab04_a/ca_nau_lau.png"),
+    image_path: require("../../assets/images/lab04_a/ca_nau_lau.png"),
     product_name: "Ca nấu lẩu, nấu mì mini..",
     shop_name: "Shop Devang"
   },
   {
     id: "2",
-    image_path: require("../assets/images/lab04_a/ga_bo_toi.png"),
+    image_path: require("../../assets/images/lab04_a/ga_bo_toi.png"),
     product_name: "Ca nấu lẩu, nấu mì mini..",
     shop_name: "Shop Devang"
   },
   {
     id: "3",
-    image_path: require("../assets/images/lab04_a/xa_can_cau.png"),
+    image_path: require("../../assets/images/lab04_a/xa_can_cau.png"),
     product_name: "Ca nấu lẩu, nấu mì mini..",
     shop_name: "Shop Devang"
   },
   {
     id: "4",
-    image_path: require("../assets/images/lab04_a/do_choi_dang_mo_hinh.png"),
+    image_path: require("../../assets/images/lab04_a/do_choi_dang_mo_hinh.png"),
     product_name: "Ca nấu lẩu, nấu mì mini..",
     shop_name: "Shop Devang"
   },
   {
     id: "5",
-    image_path: require("../assets/images/lab04_a/lanh_dao_gian_don.png"),
+    image_path: require("../../assets/images/lab04_a/lanh_dao_gian_don.png"),
     product_name: "Ca nấu lẩu, nấu mì mini..",
     shop_name: "Shop Devang"
   },
   {
     id: "6",
-    image_path: require("../assets/images/lab04_a/hieu_long_con_tre.png"),
+    image_path: require("../../assets/images/lab04_a/hieu_long_con_tre.png"),
     product_name: "Ca nấu lẩu, nấu mì mini..",
     shop_name: "Shop Devang"
   },
   {
     id: "7",
-    image_path: require("../assets/images/lab04_a/hieu_long_con_tre.png"),
+    image_path: require("../../assets/images/lab04_a/hieu_long_con_tre.png"),
     product_name: "Ca nấu lẩu, nấu mì mini..",
     shop_name: "Shop Devang"
   },
   {
     id: "8",
-    image_path: require("../assets/images/lab04_a/hieu_long_con_tre.png"),
+    image_path: require("../../assets/images/lab04_a/hieu_long_con_tre.png"),
     product_name: "Ca nấu lẩu, nấu mì mini..",
     shop_name: "Shop Devang"
   },
   {
     id: "9",
-    image_path: require("../assets/images/lab04_a/lanh_dao_gian_don.png"),
+    image_path: require("../../assets/images/lab04_a/lanh_dao_gian_don.png"),
     product_name: "Ca nấu lẩu, nấu mì mini..",
     shop_name: "Shop Devang"
   },
   {
     id: "10",
-    image_path: require("../assets/images/lab04_a/lanh_dao_gian_don.png"),
+    image_path: require("../../assets/images/lab04_a/lanh_dao_gian_don.png"),
     product_name: "Ca nấu lẩu, nấu mì mini..",
     shop_name: "Shop Devang"
   },

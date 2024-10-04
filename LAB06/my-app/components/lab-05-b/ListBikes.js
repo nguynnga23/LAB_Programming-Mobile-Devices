@@ -1,3 +1,4 @@
+import { useNavigation } from "expo-router"
 import {View, Text, StyleSheet, FlatList, Image, TouchableOpacity, ScrollView} from "react-native"
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
@@ -66,15 +67,18 @@ const DATA = [
 ]
 
 const Item = ({imgPath, name, price}) =>{
+    const navigation = useNavigation();
     return(
-        <View style={{
+        <TouchableOpacity style={{
             justifyContent: "center",
             alignItems: "center",
             backgroundColor: "#F7BA8326",
             borderRadius: 10,
             margin: 7,
             width: 200,
-        }}>
+        }}
+        onPress={()=>navigation.navigate("BikeDetail")}
+        >
             <Image style={{
                 position: "absolute",
                 top: 5,
@@ -98,7 +102,7 @@ const Item = ({imgPath, name, price}) =>{
                 <Image source={require("../../assets/images/lab05_b/$.png")}/>
                 {price}
             </Text>
-        </View>
+        </TouchableOpacity>
     )
 }
 export default function ListBikes(){

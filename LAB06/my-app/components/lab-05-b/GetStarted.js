@@ -1,6 +1,8 @@
+import { useNavigation } from "expo-router";
 import {View, Text, StyleSheet, Image, TouchableOpacity} from "react-native"
 
 export default function GetStarted(){
+    const navigation = useNavigation();
     return (
         <View style = {styles.container}>
             <View style={styles.sloganWrapper}>
@@ -14,7 +16,9 @@ export default function GetStarted(){
                 <Text style={styles.shopName}>shop</Text>
             </View>
             <View style={styles.buttonGetStartedWrapper}>
-                <TouchableOpacity style = {styles.buttonGetStarted}>
+                <TouchableOpacity style = {styles.buttonGetStarted}
+                    onPress={()=>navigation.navigate("ListBikes")}
+                >
                     <Text style = {styles.labelButton}>Get Started</Text>
                 </TouchableOpacity>
             </View>
@@ -39,7 +43,7 @@ const styles = StyleSheet.create({
         textAlign: "center"
     },
     wrapperImage:{
-        flex: 2,
+        flex: 3,
         backgroundColor: "blue",
         justifyContent: "center",
         alignItems: "center",
@@ -54,7 +58,7 @@ const styles = StyleSheet.create({
     shopName:{
         textAlign: "center",
         fontSize: 30,
-        fontWeight: 700,
+        fontWeight: 900,
         textTransform: "uppercase"
     },
     buttonGetStartedWrapper:{

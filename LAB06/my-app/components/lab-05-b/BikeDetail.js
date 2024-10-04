@@ -1,6 +1,7 @@
-import {View, Text, StyleSheet, FlatList, Image, TouchableOpacity} from "react-native"
+import {View, Text, StyleSheet, FlatList, Image, TouchableOpacity, ScrollView} from "react-native"
 export default function BikeDetail(){
  return(
+   <ScrollView>
     <View style={{
       flex: 1,
       margin: 15
@@ -78,6 +79,7 @@ export default function BikeDetail(){
          </View>
       </View>
     </View>
+    </ScrollView>
  )
 }
 

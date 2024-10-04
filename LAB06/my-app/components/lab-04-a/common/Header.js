@@ -10,7 +10,7 @@ export default function Header({navigation, title}){
             paddingHorizontal: 15
         }}>
             <TouchableOpacity style={{}}>
-                <Image source={require("../../assets/images/lab04_a/ant-design_arrow-left-outlined.png")}/>
+                <Image source={require("../../../assets/images/lab04_a/ant-design_arrow-left-outlined.png")}/>
             </TouchableOpacity>
             <Text style={{
                 color: "#fff",
@@ -19,7 +19,7 @@ export default function Header({navigation, title}){
                 {title}
             </Text>
             <TouchableOpacity onPress={()=> alert("Cart Pressed")}>
-                <Image source={require("../../assets/images/lab04_a/bi_cart-check.png")}/>
+                <Image source={require("../../../assets/images/lab04_a/bi_cart-check.png")}/>
             </TouchableOpacity>
         </View>
 

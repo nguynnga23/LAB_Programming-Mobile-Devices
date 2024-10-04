@@ -3,81 +3,81 @@ import {View, Text, Image, ScrollView, FlatList} from "react-native"
 const DATA = [
     {
       id: "1",
-      image_path: require("../assets/images/lab04_a/giacchuyen 1.png"),
+      image_path: require("../../assets/images/lab04_a/giacchuyen 1.png"),
       product_name: "Cáp chuyển từ Cổng USB sang PS2...",
-      rate_path: require("../assets/images/lab04_a/votestar.png"),
+      rate_path: require("../../assets/images/lab04_a/votestar.png"),
       price: "69.900 đ",
       discount: "-39%"
     },
     {
         id: "2",
-        image_path: require("../assets/images/lab04_a/daynguon 1.png"),
+        image_path: require("../../assets/images/lab04_a/daynguon 1.png"),
         product_name: "Cáp chuyển từ Cổng USB sang PS2...",
-        rate_path: require("../assets/images/lab04_a/votestar.png"),
+        rate_path: require("../../assets/images/lab04_a/votestar.png"),
         price: "69.900 đ",
         discount: "-39%"
     },
     {
         id: "3",
-        image_path: require("../assets/images/lab04_a/dauchuyendoipsps2 1.png"),
+        image_path: require("../../assets/images/lab04_a/dauchuyendoipsps2 1.png"),
         product_name: "Cáp chuyển từ Cổng USB sang PS2...",
-        rate_path: require("../assets/images/lab04_a/votestar.png"),
+        rate_path: require("../../assets/images/lab04_a/votestar.png"),
         price: "69.900 đ",
         discount: "-39%"
     },
     {
         id: "4",
-        image_path: require("../assets/images/lab04_a/carbusbtops2 1.png"),
+        image_path: require("../../assets/images/lab04_a/carbusbtops2 1.png"),
         product_name: "Cáp chuyển từ Cổng USB sang PS2...",
-        rate_path: require("../assets/images/lab04_a/votestar.png"),
+        rate_path: require("../../assets/images/lab04_a/votestar.png"),
         price: "69.900 đ",
         discount: "-39%"
     },
     {
         id: "5",
-        image_path: require("../assets/images/lab04_a/daucam 1.png"),
+        image_path: require("../../assets/images/lab04_a/daucam 1.png"),
         product_name: "Cáp chuyển từ Cổng USB sang PS2...",
-        rate_path: require("../assets/images/lab04_a/votestar.png"),
+        rate_path: require("../../assets/images/lab04_a/votestar.png"),
         price: "69.900 đ",
         discount: "-39%"
     },
     {
         id: "6",
-        image_path: require("../assets/images/lab04_a/giacchuyen 1.png"),
+        image_path: require("../../assets/images/lab04_a/giacchuyen 1.png"),
         product_name: "Cáp chuyển từ Cổng USB sang PS2...",
-        rate_path: require("../assets/images/lab04_a/votestar.png"),
+        rate_path: require("../../assets/images/lab04_a/votestar.png"),
         price: "69.900 đ",
         discount: "-39%"
     },
     {
         id: "7",
-        image_path: require("../assets/images/lab04_a/giacchuyen 1.png"),
+        image_path: require("../../assets/images/lab04_a/giacchuyen 1.png"),
         product_name: "Cáp chuyển từ Cổng USB sang PS2...",
-        rate_path: require("../assets/images/lab04_a/votestar.png"),
+        rate_path: require("../../assets/images/lab04_a/votestar.png"),
         price: "69.900 đ",
         discount: "-39%"
     },
     {
         id: "8",
-        image_path: require("../assets/images/lab04_a/giacchuyen 1.png"),
+        image_path: require("../../assets/images/lab04_a/giacchuyen 1.png"),
         product_name: "Cáp chuyển từ Cổng USB sang PS2...",
-        rate_path: require("../assets/images/lab04_a/votestar.png"),
+        rate_path: require("../../assets/images/lab04_a/votestar.png"),
         price: "69.900 đ",
         discount: "-39%"
     },
     {
         id: "9",
-        image_path: require("../assets/images/lab04_a/giacchuyen 1.png"),
+        image_path: require("../../assets/images/lab04_a/giacchuyen 1.png"),
         product_name: "Cáp chuyển từ Cổng USB sang PS2...",
-        rate_path: require("../assets/images/lab04_a/votestar.png"),
+        rate_path: require("../../assets/images/lab04_a/votestar.png"),
         price: "69.900 đ",
         discount: "-39%"
     },
     {
         id: "10",
-        image_path: require("../assets/images/lab04_a/giacchuyen 1.png"),
+        image_path: require("../../assets/images/lab04_a/giacchuyen 1.png"),
         product_name: "Cáp chuyển từ Cổng USB sang PS2...",
-        rate_path: require("../assets/images/lab04_a/votestar.png"),
+        rate_path: require("../../assets/images/lab04_a/votestar.png"),
         price: "69.900 đ",
         discount: "-39%"
     },

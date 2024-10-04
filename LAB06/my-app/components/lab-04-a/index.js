@@ -1,9 +1,9 @@
 import { Text, View, Image, TouchableOpacity, SafeAreaView, FlatList } from "react-native";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from "@react-navigation/native";
-import ChatHome from "../components/lab-04-a/ChatHome.js"
-import ProductList from "../components/lab-04-a/ProductList.js"
-import Header from "../components/lab-04-a/common/Header.js"
+import ChatHome from "./ChatHome.js"
+import ProductList from "./ProductList.js"
+import Header from "./common/Header.js"
 export default function index() {
   const Tab = createBottomTabNavigator();
   return (
@@ -26,7 +26,7 @@ export default function index() {
             tabBarLabel: '', // Tên của tab
             tabBarIcon: ({ color, size }) => (
               <Image 
-                source={require('../assets/images/lab04_a/Group 10.png')}
+                source={require('../../assets/images/lab04_a/Group 10.png')}
                 style={{ tintColor: color, width: size, height: size }}
               />
             ),
@@ -42,7 +42,7 @@ export default function index() {
             tabBarLabel: '', // Tên của tab
             tabBarIcon: ({ color, size }) => (
               <Image 
-                source={require('../assets/images/lab04_a/Vector (Stroke).png')}
+                source={require('../../assets/images/lab04_a/Vector (Stroke).png')}
                 style={{ tintColor: color, width: size, height: size }}
               />
             ),
@@ -57,7 +57,7 @@ export default function index() {
             tabBarLabel: '', // Tên của tab
             tabBarIcon: ({ color, size }) => (
               <Image 
-                source={require('../assets/images/lab04_a/Vector 1 (Stroke).png')}
+                source={require('../../assets/images/lab04_a/Vector 1 (Stroke).png')}
                 style={{ tintColor: color, width: size, height: size }}
               />
             ),
