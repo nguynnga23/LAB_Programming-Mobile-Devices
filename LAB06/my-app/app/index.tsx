@@ -6,7 +6,9 @@ import BikeDetail from "../components/lab-05-b/BikeDetail.js"
 export default function Page() {
   return (
     <View style={{flex: 1}}>
-      <GetStarted/>
+      {/* <GetStarted/> */}
+      <ListBikes/>
+      {/* <BikeDetail/> */}
     </View>
   );
 }
