@@ -33,7 +33,8 @@ const Login = () => {
 const styles = StyleSheet.create({
     container:{
         flex: 1,
-        paddingHorizontal: 30
+        paddingHorizontal: 30,
+        backgroundColor: "#fff"
     },
     imageWrapper:{
         flex: 2,

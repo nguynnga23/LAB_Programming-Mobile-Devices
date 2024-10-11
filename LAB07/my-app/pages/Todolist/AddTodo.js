@@ -35,7 +35,8 @@ const AddTodo = () => {
 const styles = StyleSheet.create({
     container:{
         flex: 1,
-        paddingHorizontal: 25
+        paddingHorizontal: 25,
+        backgroundColor: "#fff"
     },
     titleWrapper:{
         flex: 1,

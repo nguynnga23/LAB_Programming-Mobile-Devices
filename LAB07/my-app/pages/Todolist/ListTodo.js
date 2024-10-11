@@ -60,7 +60,8 @@ const ListTodo = () => {
 const styles = StyleSheet.create({
     container:{
         flex: 1,
-        paddingHorizontal: 25
+        paddingHorizontal: 25,
+        backgroundColor: "#fff"
     },
     inputWrapper:{
         flex: 1,
