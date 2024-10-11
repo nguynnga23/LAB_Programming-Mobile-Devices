@@ -1,6 +1,8 @@
+import { useNavigation } from '@react-navigation/native';
 import {Text, View, StyleSheet, Image, TouchableOpacity, TextInput} from 'react-native'
 
 const Login = () => {
+    const navigation = useNavigation();
     return (
         <View style = {styles.container}>
             <View style = {styles.imageWrapper}>
@@ -17,7 +19,10 @@ const Login = () => {
                 </View>
             </View>
             <View style = {styles.buttonWrapper}>
-                <TouchableOpacity style = {styles.button}>
+                <TouchableOpacity 
+                    style = {styles.button}
+                    onPress={()=>navigation.navigate("ListTodo")}
+                >
                     <Text style = {styles.textButton}>get started</Text>
                 </TouchableOpacity>
             </View>

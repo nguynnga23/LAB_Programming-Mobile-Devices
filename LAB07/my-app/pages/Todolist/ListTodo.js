@@ -1,4 +1,5 @@
-import {Text, View, StyleSheet, TextInput, Image, TouchableOpacity} from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+import {Text, View, StyleSheet, TextInput, Image, TouchableOpacity, ScrollView} from 'react-native'
 
 const Item = (value) =>{
     return(
@@ -23,6 +24,7 @@ const Item = (value) =>{
     )
 }
 const ListTodo = () => {
+    const navigation = useNavigation();
     return (
         <View style = {styles.container}>
             <View style={styles.inputWrapper}>
@@ -32,16 +34,22 @@ const ListTodo = () => {
                 </View>
             </View>
             <View style={styles.listTodo}>
-                <Item/>
-                <Item/>
-                <Item/>
-                <Item/>
-                <Item/>
-                <Item/>
-                <Item/>
+                <ScrollView>
+                    <Item/>
+                    <Item/>
+                    <Item/>
+                    <Item/>
+                    <Item/>
+                    <Item/>
+                    <Item/>
+                    <Item/>
+                </ScrollView>
             </View>
             <View style={styles.buttonWrapper}>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity 
+                    style={styles.button}
+                    onPress={()=>navigation.navigate("AddTodo")}
+                >
                     <Text style={styles.textButton}>+</Text>
                 </TouchableOpacity>
             </View>
@@ -81,6 +89,7 @@ const styles = StyleSheet.create({
     },
     listTodo:{
         flex: 4,
+        marginBottom: 20
     },
     itemWrapper:{
         width: "100%",
@@ -92,10 +101,10 @@ const styles = StyleSheet.create({
         backgroundColor: "#DEE1E678",
         marginVertical: 10,
         // Shadow for iOS
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 10 },
-        shadowOpacity: 0.2,
-        shadowRadius: 15,
+        // shadowColor: '#000',
+        // shadowOffset: { width: 0, height: 10 },
+        // shadowOpacity: 0.2,
+        // shadowRadius: 15,
 
         // Shadow for Android
         elevation: 5,

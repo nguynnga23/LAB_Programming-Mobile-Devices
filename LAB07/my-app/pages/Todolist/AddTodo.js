@@ -1,6 +1,8 @@
+import { useNavigation } from '@react-navigation/native';
 import {Text, View, StyleSheet, TextInput, Image, TouchableOpacity} from 'react-native'
 
 const AddTodo = () => {
+    const navigation = useNavigation();
     return (
         <View style = {styles.container}>
             <View style={styles.titleWrapper}>
@@ -15,7 +17,10 @@ const AddTodo = () => {
             </View>
         
             <View style={styles.buttonWrapper}>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity 
+                    style={styles.button}
+                    onPress={() => navigation.goBack()}
+                >
                     <Text style={styles.textButton}>finish</Text>
                 </TouchableOpacity>
             </View>
