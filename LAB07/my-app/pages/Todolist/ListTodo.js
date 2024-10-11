@@ -3,6 +3,7 @@ import { useState } from 'react'
 import {Text, View, StyleSheet, TextInput, Image, TouchableOpacity, ScrollView, FlatList} from 'react-native'
 
 const Item = ({job}) =>{
+    const navigation = useNavigation();
     return(
         <View style={styles.itemWrapper}>
             <View style={styles.textWrapper}>
@@ -11,30 +12,23 @@ const Item = ({job}) =>{
                         <Image source={require("../../assets/images/Todolist/Done.png")}/>
                     </TouchableOpacity>
                 </View>
-
                 <View style={styles.itemValue}>
                     <Text style={styles.itemText}>{job}</Text>
                 </View>
             </View>
             <View style={styles.edit}>
-                <TouchableOpacity>
+                <TouchableOpacity  
+                    onPress={() => {
+                    navigation.navigate('AddTodo', { job: job, edit: true, title: "edit your job" })}}
+                >
                     <Image source={require("../../assets/images/Todolist/Edit.png")}/>
                 </TouchableOpacity>
             </View>
         </View>
     )
 }
-const ListTodo = () => {
+const ListTodo = ({todos}) => {
     const navigation = useNavigation();
-    const [todos, setTodos] = useState([
-        { id: '1', job: 'To check email' },
-        { id: '2', job: 'UI task web page' },
-        { id: '3', job: 'Learn javascript basic' },
-        { id: '4', job: 'Learn HTML Advance' },
-        { id: '5', job: 'Medical App UI' },
-        { id: '6', job: 'Learn Java' },
-    ])
-
     const [searchTerm, setSearchTerm] = useState('');
     const filteredTodos = todos.filter(todo => todo.job.toLowerCase().includes(searchTerm.toLowerCase()));
     return (
@@ -42,7 +36,12 @@ const ListTodo = () => {
             <View style={styles.inputWrapper}>
                 <View style={styles.inputBorder}>
                     <Image source={require("../../assets/images/Todolist/Search.png")}/>
-                    <TextInput style={styles.input} placeholder='Search'/>
+                    <TextInput 
+                        style={styles.input} 
+                        placeholder='Search'
+                        value={searchTerm}
+                        onChangeText={setSearchTerm}
+                    />
                 </View>
             </View>
             <View style={styles.listTodo}>

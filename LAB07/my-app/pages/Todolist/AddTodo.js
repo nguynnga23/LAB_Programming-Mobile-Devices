@@ -1,25 +1,43 @@
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import { useState } from 'react';
 import {Text, View, StyleSheet, TextInput, Image, TouchableOpacity} from 'react-native'
 
-const AddTodo = () => {
+const AddTodo = ({addTodo, editTodo}) => {
     const navigation = useNavigation();
+    const route = useRoute();
+    const {job, edit, title} = route.params || {}
+    const [inputJob, setInputJob] = useState(job || '');
+
+    const handleFinish = () =>{
+        if(edit){
+            editTodo(job, inputJob)
+        }else{
+            addTodo(inputJob);
+        }
+        navigation.goBack();
+    }
     return (
         <View style = {styles.container}>
             <View style={styles.titleWrapper}>
-                <Text style={styles.title}>add your job</Text>
+                <Text style={styles.title}>{title || 'add your job'}</Text>
             </View>
 
             <View style={styles.inputWrapper}>
                 <View style={styles.inputBorder}>
                     <Image source={require("../../assets/images/Todolist/List.png")}/>
-                    <TextInput style={styles.input} placeholder='Input your job'/>
+                    <TextInput 
+                        style={styles.input} 
+                        placeholder='Input your job'
+                        value={inputJob}
+                        onChangeText={setInputJob}
+                    />
                 </View>
             </View>
         
             <View style={styles.buttonWrapper}>
                 <TouchableOpacity 
                     style={styles.button}
-                    onPress={() => navigation.goBack()}
+                    onPress={handleFinish}
                 >
                     <Text style={styles.textButton}>finish</Text>
                 </TouchableOpacity>

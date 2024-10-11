@@ -9,6 +9,22 @@ import Header from "../../components/Todolist/Header.js"
 const Stack = createNativeStackNavigator();
 const TodoApp = () => {
     const [name, setName] = useState("");
+    const [todos, setTodos] = useState([
+        { id: '1', job: 'To check email' },
+        { id: '2', job: 'UI task web page' },
+        { id: '3', job: 'Learn javascript basic' },
+        { id: '4', job: 'Learn HTML Advance' },
+        { id: '5', job: 'Medical App UI' },
+        { id: '6', job: 'Learn Java' },
+        { id: '7', job: 'Learn Java' }
+    ]);
+    const addTodo = (job) =>{
+        setTodos(preTodos => [...preTodos, {id: String(preTodos.length + 1), job}]);
+    }
+
+    const editTodo = (oldJob, newJob) => {
+        setTodos(preTodos => preTodos.map(todo => todo.job === oldJob ? {...todo, job: newJob} : todo));
+    }
     return (
        <NavigationContainer independent={true}>
         <Stack.Navigator>
@@ -17,19 +33,18 @@ const TodoApp = () => {
                 component= {props => <Login {...props} setName={setName}/>}
                 options={{
                     headerShown: false,
-                    // params: {setName}
                 }}
             />
             <Stack.Screen 
                 name="AddTodo" 
-                component={AddTodo}
+                component= {props => <AddTodo {...props} addTodo={addTodo} editTodo={editTodo} />}
                 options={{
                     headerTitle: () => <Header title={name}/>
                 }}
             />
             <Stack.Screen 
                 name="ListTodo" 
-                component={ListTodo}  
+                component={props => <ListTodo {...props} todos={todos} setTodos={setTodos} />}  
                 options={{
                         headerTitle: () => <Header title={name}/>
                     }}
