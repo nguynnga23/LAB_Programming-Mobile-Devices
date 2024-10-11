@@ -1,4 +1,5 @@
-import App from './app/App.js'
+import App from './App.js'
+
 const Index = () => {
     return (  
         <App/>
