@@ -1,8 +1,14 @@
 import { useNavigation } from '@react-navigation/native';
 import {Text, View, StyleSheet, Image, TouchableOpacity, TextInput} from 'react-native'
-
-const Login = () => {
+import { useState } from 'react';
+const Login = ({setName}) => {
     const navigation = useNavigation();
+    const [name, setNameLocal] = useState("");
+    const handleLogin = () => {
+        navigation.navigate("ListTodo");
+        // Gọi hàm setName từ props để cập nhật tên
+        setName(name);
+    };
     return (
         <View style = {styles.container}>
             <View style = {styles.imageWrapper}>
@@ -15,13 +21,19 @@ const Login = () => {
             <View style = {styles.inputWrapper}>
                 <View style = {styles.inputBorder}>
                     <Image source={require("../../assets/images/Todolist/Frame.png")}/>
-                    <TextInput style = {styles.input} placeholder = "Enter your name" />
+                    <TextInput 
+                        style = {styles.input} 
+                        placeholder = "Enter your name" 
+                        value={name}
+                        onChangeText={setNameLocal}
+                    />
                 </View>
+                
             </View>
             <View style = {styles.buttonWrapper}>
                 <TouchableOpacity 
                     style = {styles.button}
-                    onPress={()=>navigation.navigate("ListTodo")}
+                    onPress={handleLogin}
                 >
                     <Text style = {styles.textButton}>get started</Text>
                 </TouchableOpacity>

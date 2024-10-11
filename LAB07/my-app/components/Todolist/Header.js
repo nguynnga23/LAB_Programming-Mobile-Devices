@@ -1,5 +1,5 @@
 import {Text, View, Image, StyleSheet} from "react-native"
-const Header = ({username}) => {
+const Header = ({title}) => {
     return (
         <View style={styles.container}>
             <View style={styles.avatarWrapper}>
@@ -7,7 +7,7 @@ const Header = ({username}) => {
             </View>
 
             <View style={styles.usernameWrapper}>
-                <Text style={styles.username}>Hi {username}</Text>
+                <Text style={styles.username}>Hi {title || "Default Title"}</Text>
                 <Text style={styles.greeting}>Have agrate day a head</Text>
             </View>
         </View>
