@@ -1,7 +1,8 @@
 import { useNavigation } from '@react-navigation/native'
-import {Text, View, StyleSheet, TextInput, Image, TouchableOpacity, ScrollView} from 'react-native'
+import { useState } from 'react'
+import {Text, View, StyleSheet, TextInput, Image, TouchableOpacity, ScrollView, FlatList} from 'react-native'
 
-const Item = (value) =>{
+const Item = ({job}) =>{
     return(
         <View style={styles.itemWrapper}>
             <View style={styles.textWrapper}>
@@ -12,7 +13,7 @@ const Item = (value) =>{
                 </View>
 
                 <View style={styles.itemValue}>
-                    <Text style={styles.itemText}>To check email</Text>
+                    <Text style={styles.itemText}>{job}</Text>
                 </View>
             </View>
             <View style={styles.edit}>
@@ -25,6 +26,17 @@ const Item = (value) =>{
 }
 const ListTodo = () => {
     const navigation = useNavigation();
+    const [todos, setTodos] = useState([
+        { id: '1', job: 'To check email' },
+        { id: '2', job: 'UI task web page' },
+        { id: '3', job: 'Learn javascript basic' },
+        { id: '4', job: 'Learn HTML Advance' },
+        { id: '5', job: 'Medical App UI' },
+        { id: '6', job: 'Learn Java' },
+    ])
+
+    const [searchTerm, setSearchTerm] = useState('');
+    const filteredTodos = todos.filter(todo => todo.job.toLowerCase().includes(searchTerm.toLowerCase()));
     return (
         <View style = {styles.container}>
             <View style={styles.inputWrapper}>
@@ -35,14 +47,11 @@ const ListTodo = () => {
             </View>
             <View style={styles.listTodo}>
                 <ScrollView>
-                    <Item/>
-                    <Item/>
-                    <Item/>
-                    <Item/>
-                    <Item/>
-                    <Item/>
-                    <Item/>
-                    <Item/>
+                    <FlatList
+                        data={filteredTodos}
+                        keyExtractor={(item) => item.id}
+                        renderItem={({item}) => <Item job = {item.job}/>}
+                    />
                 </ScrollView>
             </View>
             <View style={styles.buttonWrapper}>
@@ -115,14 +124,16 @@ const styles = StyleSheet.create({
     },
 
     done:{
-        marginRight: 15
+        marginRight: 15,
+        width: 30
     },
     itemValue:{
 
     },
     itemText:{
         fontWeight: 700,
-        fontSize: 18
+        fontSize: 18,
+        width: 200
     },
    
     buttonWrapper:{
