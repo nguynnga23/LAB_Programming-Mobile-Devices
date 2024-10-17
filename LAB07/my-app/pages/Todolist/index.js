@@ -1,5 +1,5 @@
 import {View, Text, StyleSheet} from 'react-native'
-import {useState} from "react"
+import {useState, useEffect} from "react"
 import Login from "./Login.js"
 import AddTodo from './AddTodo.js';
 import ListTodo from './ListTodo.js';
@@ -10,14 +10,31 @@ const Stack = createNativeStackNavigator();
 const TodoApp = () => {
     const [name, setName] = useState("");
     const [todos, setTodos] = useState([
-        { id: '1', job: 'To check email' },
-        { id: '2', job: 'UI task web page' },
-        { id: '3', job: 'Learn javascript basic' },
-        { id: '4', job: 'Learn HTML Advance' },
-        { id: '5', job: 'Medical App UI' },
-        { id: '6', job: 'Learn Java' },
-        { id: '7', job: 'Learn Java' }
+        // { id: '1', job: 'To check email' },
+        // { id: '2', job: 'UI task web page' },
+        // { id: '3', job: 'Learn javascript basic' },
+        // { id: '4', job: 'Learn HTML Advance' },
+        // { id: '5', job: 'Medical App UI' },
+        // { id: '6', job: 'Learn Java' },
+        // { id: '7', job: 'Learn Java' }
     ]);
+    useEffect(() => {
+        const fetchTodos = async () => {
+            try {
+                const response = await fetch('https://6710f8e94eca2acdb5f30372.mockapi.io/api/todo');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                setTodos(data);
+            } catch (error) {
+                console.error('Error fetching todos:', error);
+            }
+        };
+
+        fetchTodos();
+    }, []); // Chạy chỉ một lần khi component mount
+    
     const addTodo = (job) =>{
         setTodos(preTodos => [...preTodos, {id: String(preTodos.length + 1), job}]);
     }
