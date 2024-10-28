@@ -1,41 +1,49 @@
 import { useNavigation } from '@react-navigation/native';
-import {Text, View, StyleSheet, Image, TouchableOpacity, TextInput} from 'react-native'
+import { Text, View, StyleSheet, Image, TouchableOpacity, TextInput, Alert } from 'react-native';
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-const Login = ({setName}) => {
+import { setName } from '../redux/usersSlide.js'; // Đường dẫn tới file userSlice.js
+
+const Login = () => {
     const navigation = useNavigation();
+    const dispatch = useDispatch();
     const [name, setNameLocal] = useState("");
+
     const handleLogin = () => {
-        navigation.navigate("ListTodo");
-        // Gọi hàm setName từ props để cập nhật tên
-        setName(name);
+        if (name.trim() === "") {
+            Alert.alert("Error", "Please enter your name");
+            return;
+        }
+        dispatch(setName(name)); // Gọi hành động để cập nhật tên trong Redux
+        navigation.navigate("ListTodo"); // Chuyển đến trang danh sách công việc
     };
+
     return (
-        <View style = {styles.container}>
-            <View style = {styles.imageWrapper}>
-                <Image source={require("../assets/Logo.png")}/>
+        <View style={styles.container}>
+            <View style={styles.imageWrapper}>
+                <Image source={require("../assets/Logo.png")} />
             </View>
-            <View style = {styles.titleWrapper}>
-                <Text style = {styles.textTitle}>manage your</Text>
-                <Text style = {styles.textTitle}>task</Text>
+            <View style={styles.titleWrapper}>
+                <Text style={styles.textTitle}>Manage your</Text>
+                <Text style={styles.textTitle}>task</Text>
             </View>
-            <View style = {styles.inputWrapper}>
-                <View style = {styles.inputBorder}>
-                    <Image source={require("../assets/Frame.png")}/>
+            <View style={styles.inputWrapper}>
+                <View style={styles.inputBorder}>
+                    <Image source={require("../assets/Frame.png")} />
                     <TextInput 
-                        style = {styles.input} 
-                        placeholder = "Enter your name" 
+                        style={styles.input} 
+                        placeholder="Enter your name" 
                         value={name}
                         onChangeText={setNameLocal}
                     />
                 </View>
-                
             </View>
-            <View style = {styles.buttonWrapper}>
+            <View style={styles.buttonWrapper}>
                 <TouchableOpacity 
-                    style = {styles.button}
+                    style={styles.button}
                     onPress={handleLogin}
                 >
-                    <Text style = {styles.textButton}>get started</Text>
+                    <Text style={styles.textButton}>Get started</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -43,35 +51,34 @@ const Login = ({setName}) => {
 }
 
 const styles = StyleSheet.create({
-    container:{
+    container: {
         flex: 1,
         paddingHorizontal: 30,
         backgroundColor: "#fff"
     },
-    imageWrapper:{
+    imageWrapper: {
         flex: 2,
         justifyContent: "center",
         alignItems: "center"
     },
-    titleWrapper:{
+    titleWrapper: {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
     },
-    textTitle:{
+    textTitle: {
         fontSize: 30,
-        fontWeight: 800,
+        fontWeight: '800',
         color: "#8353E2",
         textTransform: "uppercase",
         paddingVertical: 5
     },
-    
-    inputWrapper:{
+    inputWrapper: {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
     },
-    inputBorder:{
+    inputBorder: {
         borderWidth: 1,
         borderColor: "gray",
         width: "100%",
@@ -81,22 +88,22 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center"
     },
-    input:{
+    input: {
         height: "100%",
         width: "80%",
         marginLeft: 10,
         fontSize: 18,
-        fontWeight: 600,
+        fontWeight: '600',
         color: "gray",
         padding: 5,
         borderWidth: 0,
     },
-    buttonWrapper:{
+    buttonWrapper: {
         flex: 1,
         justifyContent: "center",
         alignItems: "center"
     },
-    button:{
+    button: {
         backgroundColor: "#00BDD6",
         height: 50,
         width: "100%",
@@ -104,11 +111,12 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center"
     },
-    textButton:{
-        color : '#fff',
+    textButton: {
+        color: '#fff',
         textTransform: "uppercase",
         fontSize: 20,
-        fontWeight: 700
+        fontWeight: '700'
     },
 })
+
 export default Login;

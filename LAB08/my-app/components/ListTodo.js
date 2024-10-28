@@ -1,5 +1,6 @@
 import { useNavigation } from '@react-navigation/native'
 import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import {Text, View, StyleSheet, TextInput, Image, TouchableOpacity, ScrollView, FlatList} from 'react-native'
 
 const Item = ({id, job}) =>{
@@ -27,10 +28,15 @@ const Item = ({id, job}) =>{
         </View>
     )
 }
-const ListTodo = ({todos}) => {
+const ListTodo = () => {
     const navigation = useNavigation();
     const [searchTerm, setSearchTerm] = useState('');
-    const filteredTodos = todos.filter(todo => todo.job.toLowerCase().includes(searchTerm.toLowerCase()));
+
+    const dispatch = useDispatch();
+    const todos = useSelector(state => state.todos.items);
+
+    const filteredTodos = (todos || []).filter(todo => todo.job.toLowerCase().includes(searchTerm.toLowerCase()));
+
     return (
         <View style = {styles.container}>
             <View style={styles.inputWrapper}>
