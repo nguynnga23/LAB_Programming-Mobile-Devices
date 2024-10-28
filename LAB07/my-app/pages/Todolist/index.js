@@ -35,13 +35,50 @@ const TodoApp = () => {
         fetchTodos();
     }, []); // Chạy chỉ một lần khi component mount
     
-    const addTodo = (job) =>{
-        setTodos(preTodos => [...preTodos, {id: String(preTodos.length + 1), job}]);
-    }
+    // const addTodo = (job) =>{
+    //     setTodos(preTodos => [...preTodos, {id: String(preTodos.length + 1), job}]);
+    // }
 
-    const editTodo = (oldJob, newJob) => {
-        setTodos(preTodos => preTodos.map(todo => todo.job === oldJob ? {...todo, job: newJob} : todo));
-    }
+    // const editTodo = (oldJob, newJob) => {
+    //     setTodos(preTodos => preTodos.map(todo => todo.job === oldJob ? {...todo, job: newJob} : todo));
+    // }
+    const addTodo = async (newJob) => {
+        try {
+          const response = await fetch('https://6710f8e94eca2acdb5f30372.mockapi.io/api/todo', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ job: newJob }),
+          });
+          const data = await response.json();
+          setTodos([...todos, data]);
+          setNewJob('');
+        } catch (error) {
+          console.error(error);
+        }
+      };
+    
+      const editTodo = async (id, oldJob, newJob) => {
+        try {
+          const response = await fetch('https://6710f8e94eca2acdb5f30372.mockapi.io/api/todo/${id}', {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ newJob: newJob }),
+          });
+          const data = await response.json();
+          console.log(data);
+          // Cập nhật danh sách todos sau khi chỉnh sửa
+          const updatedTodos = todos.map(todo =>
+            todo.id === id ? { ...todo, job: newJob } : todo
+          );
+          setTodos(updatedTodos);
+        } catch (error) {
+          console.error(error);
+        }
+      };
     return (
        <NavigationContainer independent={true}>
         <Stack.Navigator>

@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native'
 import { useState } from 'react'
 import {Text, View, StyleSheet, TextInput, Image, TouchableOpacity, ScrollView, FlatList} from 'react-native'
 
-const Item = ({job}) =>{
+const Item = ({id, job}) =>{
     const navigation = useNavigation();
     return(
         <View style={styles.itemWrapper}>
@@ -19,7 +19,7 @@ const Item = ({job}) =>{
             <View style={styles.edit}>
                 <TouchableOpacity  
                     onPress={() => {
-                    navigation.navigate('AddTodo', { job: job, edit: true, title: "edit your job" })}}
+                    navigation.navigate('AddTodo', {id: id, job: job, edit: true, title: "edit your job" })}}
                 >
                     <Image source={require("../../assets/images/Todolist/Edit.png")}/>
                 </TouchableOpacity>
@@ -49,7 +49,7 @@ const ListTodo = ({todos}) => {
                     <FlatList
                         data={filteredTodos}
                         keyExtractor={(item) => item.id}
-                        renderItem={({item}) => <Item job = {item.job}/>}
+                        renderItem={({item}) => <Item id = {item.id} job = {item.job}/>}
                     />
                 </ScrollView>
             </View>
