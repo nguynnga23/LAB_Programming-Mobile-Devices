@@ -10,7 +10,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 export default function Page() {
   const Stack = createNativeStackNavigator();
   return (
-    <NavigationContainer>
+    <NavigationContainer independent={true}>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="ProductDetail" component={ProductDetail} />
         <Stack.Screen name="ProductFilter" component={ProductFilter} />

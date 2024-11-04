@@ -31,7 +31,7 @@ import {
               />
               <Image
                 style={styles.imageStar}
-                source={require('..../assets/images/star.png')}
+                source={require('../assets/images/star.png')}
               />
               <Image
                 style={styles.imageStar}
@@ -39,7 +39,7 @@ import {
               />
               <Image
                 style={styles.imageStar}
-                source={require('..../assets/images/star.png')}
+                source={require('../assets/images/star.png')}
               />
               <Image
                 style={styles.imageStar}

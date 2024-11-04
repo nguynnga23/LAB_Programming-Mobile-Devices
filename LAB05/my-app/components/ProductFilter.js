@@ -9,36 +9,36 @@ import {
   
   
   export default function ProductFilter({ navigation }) {
-    // const {setSelectedColor} = route.params;
-    // const [color, setColor] = useState('blue');
-    // const colors = ['#ADD8E6', '#FF0000', '#000000', '#0000FF'];
+    const {setSelectedColor} = route.params;
+    const [color, setColor] = useState('blue');
+    const colors = ['#ADD8E6', '#FF0000', '#000000', '#0000FF'];
   
-    // return (
-    //   <SafeAreaView style={styles.container}>
-    //     <View style={styles.productWrapper}>
-    //       <Image
-    //         style={styles.imageProduct}
-    //         source={require('../assets/images/vs_blue.png')}
-    //       />
-    //       <Text style={styles.descProduct}>
-    //         <View><Text>Điện Thoại Vsmart Joy 3</Text></View>
+    return (
+      <SafeAreaView style={styles.container}>
+        <View style={styles.productWrapper}>
+          <Image
+            style={styles.imageProduct}
+            source={require('../assets/images/vs_blue.png')}
+          />
+          <Text style={styles.descProduct}>
+            <View><Text>Điện Thoại Vsmart Joy 3</Text></View>
             
-    //         <View><Text>Hàng chính hãng</Text></View>
-    //       </Text>
-    //     </View>
-    //     <View style={styles.colorChooserWrapper}>
-    //       <Text>Chọn một màu bên dưới:</Text>
-    //       {colors.map((c, index)=>(
-    //         <TouchableOpacity
-    //         style={[styles.button, styles.buttonColor1]}
-    //         onPress={()=>{
-    //           setSelectedColor(color);
-    //           navigation.goBack();
-    //         }}></TouchableOpacity>
-    //       ))}
-    //     </View>
-    //   </SafeAreaView>
-    // );
+            <View><Text>Hàng chính hãng</Text></View>
+          </Text>
+        </View>
+        <View style={styles.colorChooserWrapper}>
+          {/* <Text>Chọn một màu bên dưới:</Text>
+          {colors.map((c, index)=>(
+            <TouchableOpacity
+            style={[styles.button, styles.buttonColor1]}
+            onPress={()=>{
+              setSelectedColor(color);
+              navigation.goBack();
+            }}></TouchableOpacity>
+          ))} */}
+        </View>
+      </SafeAreaView>
+    );
   }
   
   const styles = StyleSheet.create({
