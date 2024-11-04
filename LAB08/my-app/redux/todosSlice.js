@@ -6,11 +6,10 @@ const todoSlice = createSlice({
     items: [
       { id: '1', job: 'To check email' },
       { id: '2', job: 'UI task web page' },
-      { id: '3', job: 'Learn javascript basic' },
-      { id: '4', job: 'Learn HTML Advance' },
-      { id: '5', job: 'Medical App UI' },
-      { id: '6', job: 'Learn Java' },
-      { id: '7', job: 'Learn Java' },
+      // { id: '3', job: 'Learn javascript basic' },
+      // { id: '4', job: 'Learn HTML Advance' },
+      // { id: '5', job: 'Medical App UI' },
+      // { id: '6', job: 'Learn Java' },
     ],
   },
   reducers: {
