@@ -23,7 +23,7 @@ export const addBikeToAPI = createAsyncThunk(
       throw new Error('Failed to add bike');
     }
     const data = await response.json();
-    return data; // Return the newly added bike data
+    return data;
   }
 );
 
