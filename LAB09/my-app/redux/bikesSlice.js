@@ -7,6 +7,26 @@ export const fetchBikes = createAsyncThunk('bikes/fetchBikes', async () => {
   return data;
 });
 
+// Tạo một action để thêm bike vào MockAPI
+export const addBikeToAPI = createAsyncThunk(
+  'bikes/addBike',
+  async (newBike) => {
+    const response = await fetch('https://6731c1d97aaf2a9aff11e61b.mockapi.io/bikes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newBike),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to add bike');
+    }
+    const data = await response.json();
+    return data; // Return the newly added bike data
+  }
+);
+
 const bikesSlice = createSlice({
   name: 'bikes',
   initialState: {
@@ -15,9 +35,7 @@ const bikesSlice = createSlice({
     error: null,
   },
   reducers: {
-    addBike: (state, action) => {
-      state.items.push(action.payload);
-    },
+
   },
   extraReducers: (builder) => {
     builder

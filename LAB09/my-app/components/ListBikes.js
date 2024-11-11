@@ -59,6 +59,7 @@ const Item = ({ imgPath, name, price }) => {
 };
 
 export default function ListBikes() {
+  const navigation = useNavigation();
   const dispatch = useDispatch();
   const { items, loading, error } = useSelector((state) => state.bikes);
 
@@ -74,10 +75,13 @@ export default function ListBikes() {
   return (
     <View style={{ flex: 1, padding: 20 }}>
       <View style={{ flex: 1, justifyContent: "space-around" }}>
-        <View>
+        <View style={{flexDirection: "row", justifyContent: "space-around"}}>
           <Text style={{ fontSize: 25, fontWeight: "700", color: "#E94141" }}>
             The world’s Best Bike
           </Text>
+          <TouchableOpacity  onPress={()=>navigation.navigate("AddBike")} style={[styles.buttonFilter, {backgroundColor: "#E94141"}]} >
+            <Text style={[styles.labelButton, {color: "white"}]}>Add a bike</Text>
+          </TouchableOpacity>
         </View>
        
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>

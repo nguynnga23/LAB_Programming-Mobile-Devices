@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import GetStarted from "./GetStarted.js"
 import ListBikes from "./ListBikes.js"
 import BikeDetail from "./BikeDetail.js"
+import AddBike from "./AddBike.js";
 export default function index() {
   const Tab = createBottomTabNavigator();
   
@@ -25,6 +26,10 @@ export default function index() {
           <Tab.Screen
               name = "BikeDetail"
               component={BikeDetail}
+          />
+          <Tab.Screen
+              name = "AddBike"
+              component={AddBike}
           />
       </Tab.Navigator>
     </NavigationContainer>
