@@ -9,7 +9,9 @@ import {
   import { createNativeStackNavigator } from '@react-navigation/native-stack';
   import { NavigationContainer } from '@react-navigation/native';
   import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-  export default function ProductDetail({navigation}) {
+import { useNavigation } from 'expo-router';
+  export default function ProductDetail() {
+    const navigation = useNavigation();
     return (
       
       <SafeAreaView style={styles.container}>

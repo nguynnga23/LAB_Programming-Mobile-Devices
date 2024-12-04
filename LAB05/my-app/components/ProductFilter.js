@@ -1,3 +1,5 @@
+import { useNavigation } from 'expo-router';
+import { useState } from 'react';
 import {
     Text,
     SafeAreaView,
@@ -8,9 +10,10 @@ import {
   } from 'react-native';
   
   
-  export default function ProductFilter({ navigation }) {
-    const {setSelectedColor} = route.params;
-    const [color, setColor] = useState('blue');
+  export default function ProductFilter() {
+    const navigation = useNavigation();
+    // const {setSelectedColor} = route.params;
+    // const [color, setColor] = useState('blue');
     const colors = ['#ADD8E6', '#FF0000', '#000000', '#0000FF'];
   
     return (
@@ -27,8 +30,8 @@ import {
           </Text>
         </View>
         <View style={styles.colorChooserWrapper}>
-          {/* <Text>Chọn một màu bên dưới:</Text>
-          {colors.map((c, index)=>(
+          <Text>Chọn một màu bên dưới:</Text>
+          {/* {colors.map((c, index)=>(
             <TouchableOpacity
             style={[styles.button, styles.buttonColor1]}
             onPress={()=>{
