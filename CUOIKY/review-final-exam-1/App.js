@@ -12,7 +12,7 @@ import Screen04_ProductDetail from './components/Screen_04_ProductDetail';
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-        <Screen_02_Register />
+        <Screen03_Login />
     </SafeAreaView>
   );
 }
