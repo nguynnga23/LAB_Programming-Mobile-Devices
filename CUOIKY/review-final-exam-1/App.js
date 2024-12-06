@@ -5,11 +5,14 @@ import { Card } from 'react-native-paper';
 
 // or any files within the Snack
 import Screen_01_GetStarted from './components/Screen_01_GetStarted';
+import Screen_02_Register from './components/Screen_02_Register';
+import Screen03_Login from './components/Screen_03_Login';
+import Screen04_ProductDetail from './components/Screen_04_ProductDetail';
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-        <Screen_01_GetStarted />
+        <Screen_02_Register />
     </SafeAreaView>
   );
 }
