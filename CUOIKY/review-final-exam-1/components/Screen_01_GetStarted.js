@@ -1,8 +1,10 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native'
 import React from 'react'
-
+import { useNavigation } from "@react-navigation/native"
 export default function Screen_01_GetStarted() {
+  const navigation = useNavigation();
   return (
+    
     <View style={styles.container}>
       {/* Banner wrapper */}
       <View style={styles.bannerWrapper}>
@@ -15,10 +17,18 @@ export default function Screen_01_GetStarted() {
       </View>
       {/* Button Wrapper */}
       <View style={styles.buttonWrapper}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button}
+          onPress={()=>{
+            navigation.navigate("Register")
+          }}
+        >
             <Text style={styles.labelButton}>Sign up</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.button, {backgroundColor:"#fff"}]}>
+        <TouchableOpacity style={[styles.button, {backgroundColor:"#fff"}]}
+          onPress={()=>{
+            navigation.navigate("Login")
+          }}
+        >
             <Text style={[styles.labelButton, {color:"#000"}]}>Login</Text>
         </TouchableOpacity>
       </View>
