@@ -1,10 +1,7 @@
-import { Text, SafeAreaView, StyleSheet } from 'react-native';
+import {StyleSheet } from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
 import {NavigationContainer} from '@react-navigation/native';
-// You can import supported modules from npm
-import { Card } from 'react-native-paper';
 
-// or any files within the Snack
 import Screen_01_GetStarted from './components/Screen_01_GetStarted';
 import Screen_02_Register from './components/Screen_02_Register';
 import Screen03_Login from './components/Screen_03_Login';

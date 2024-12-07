@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "white",
-        paddingHorizontal: 20
+        paddingHorizontal: 25
     },
     // Banner wrapper
     bannerWrapper:{
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     image:{
-       height: 550,
+       height: "90%",
        width: "100%",
        borderRadius: 20
     },
@@ -61,10 +61,10 @@ const styles = StyleSheet.create({
     },
     title:{
         fontWeight: 700,
-        fontSize: 25,
+        fontSize: 20,
     },
     subTitle:{
-        fontSize: 22,
+        fontSize: 18,
         opacity: 0.4
     },
 
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     },
     button:{
         backgroundColor: "#25C3D9",
-        height: 60,
+        height: 50,
         justifyContent: "center",
         alignItems: "center",
         borderRadius: 10

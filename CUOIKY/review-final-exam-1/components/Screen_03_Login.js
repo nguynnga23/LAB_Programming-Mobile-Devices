@@ -108,6 +108,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     height: 50,
     padding: 5,
+    paddingHorizontal: 25,
     marginVertical: 10,
     borderColor: "#C5C8CD",
     justifyContent: "center",
@@ -116,7 +117,7 @@ const styles = StyleSheet.create({
   input:{
     width: "100%",
     height: 50,
-    marginLeft: 5
+    marginLeft: 10
   },
   termNCondition:{
     marginVertical: 10,
