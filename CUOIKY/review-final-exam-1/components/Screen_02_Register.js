@@ -1,8 +1,40 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigation } from '@react-navigation/native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 export default function Screen_02_Register() {
+  const navigation = useNavigation();
+
+  // Các state để lưu giá trị của username, email, password
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+
+
+  // Hàm xử lý khi nhấn nút "Continue"
+  const handleContinue = async () =>{
+      // Tạo đối tượng chứa thông tin người dùng
+      const userData = { username, email, password };
+      try{
+        // Gửi dữ liệu user tới API (sử dụng fetch)
+        const response = await fetch("https://6731c1d97aaf2a9aff11e61b.mockapi.io/users",{
+          method: 'POST',
+          headers:{
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(userData)
+        });
+        if(!response.ok){
+          throw new Error("Đã xảy ra lỗi khi gửi dữ liệu");
+        }
+        navigation.navigate("Login")
+      } catch(error){
+        console.error("Lỗi: ", error);
+      }
+  }
+
   return (
     <View style={styles.container}>
       {/* Logo and title wrapper */}
@@ -15,17 +47,29 @@ export default function Screen_02_Register() {
       <View style={styles.inputWrapper}>
         <View style={styles.inputBorder}>
           <Ionicons name="person-outline" size={20} color="black" />
-          <TextInput style={styles.input} placeholder='Enter your user name'/>
+          <TextInput 
+            style={styles.input} placeholder='Enter your user name'
+            value={username}
+            onChangeText={setUsername}
+          />
         </View>
 
         <View style={styles.inputBorder}>
           <Ionicons name="mail-outline" size={20} color="black" />
-          <TextInput style={styles.input} placeholder='Enter your email address'/>
+          <TextInput 
+            style={styles.input} placeholder='Enter your email address'
+            value={email}
+            onChangeText={setEmail}
+          />
         </View>
 
         <View style={styles.inputBorder}>
           <Ionicons name="lock-closed-outline" size={20} color="black" />
-          <TextInput style={styles.input} placeholder='Enter your password'/>
+          <TextInput 
+            style={styles.input} placeholder='Enter your password'
+            value={password}
+            onChangeText={setPassword}
+          />
         </View>
 
         <View style={styles.termNCondition}>
@@ -34,7 +78,9 @@ export default function Screen_02_Register() {
       </View>
       {/* Button wrapper */}
       <View style={styles.buttonWrapper}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button}
+          onPress={handleContinue}
+        >
           <Text style={styles.labelButton}>Continue</Text>
         </TouchableOpacity>
       </View>
