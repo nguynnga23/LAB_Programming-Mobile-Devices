@@ -13,9 +13,11 @@ const AddTodo = () => {
 
     const handleFinish = () => {
         if (edit) {
-            dispatch(editTodo({ id: id, job: inputJob })); // Cập nhật logic để truyền id
+            const newTodo = {job: inputJob};
+            dispatch(editTodo({ id: id, newTodo })); // Cập nhật logic để truyền id
         } else {
-            dispatch(addTodo({ id: new Date().getTime().toString(), job: inputJob })); // Thêm id mới cho todo
+            const newTodo = {job: inputJob};
+            dispatch(addTodo(newTodo)); // Thêm id mới cho todo
         }
         navigation.goBack();
     };

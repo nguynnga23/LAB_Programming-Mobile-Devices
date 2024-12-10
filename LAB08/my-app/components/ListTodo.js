@@ -1,26 +1,37 @@
 import { useNavigation } from '@react-navigation/native'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import {Text, View, StyleSheet, TextInput, Image, TouchableOpacity, ScrollView, FlatList} from 'react-native'
+import { deleteTodo, fetchTodos } from '../redux/todosSlice';
 
-const Item = ({id, job}) =>{
+const Item = ({item}) =>{
     const navigation = useNavigation();
+    const dispatch = useDispatch();
+    const handleDelete = async () => {
+        try {
+          dispatch(deleteTodo(item.id));
+          alert(`Todo "${item.job}" deleted successfully!`); // More informative message
+        } catch (error) {
+          console.error('Error deleting todo:', error);
+          alert('Failed to delete todo. Please try again.'); // User-friendly error message
+        }
+      };
     return(
         <View style={styles.itemWrapper}>
             <View style={styles.textWrapper}>
                 <View style={styles.done}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={handleDelete}> 
                         <Image source={require("../assets/Done.png")}/>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.itemValue}>
-                    <Text style={styles.itemText}>{job}</Text>
+                    <Text style={styles.itemText}>{item.job}</Text>
                 </View>
             </View>
             <View style={styles.edit}>
                 <TouchableOpacity  
                     onPress={() => {
-                    navigation.navigate('AddTodo', {id: id, job: job, edit: true, title: "edit your job" })}}
+                    navigation.navigate('AddTodo', {id: item.id, job: item.job, edit: true, title: "edit your job" })}}
                 >
                     <Image source={require("../assets/Edit.png")}/>
                 </TouchableOpacity>
@@ -33,9 +44,18 @@ const ListTodo = () => {
     const [searchTerm, setSearchTerm] = useState('');
 
     const dispatch = useDispatch();
-    const todos = useSelector(state => state.todos.items);
+    const items = useSelector((state) => state.todos.items);
+    const loading = useSelector((state) => state.todos.loading);
+    const error = useSelector((state) => state.todos.error);
 
-    const filteredTodos = (todos || []).filter(todo => todo.job.toLowerCase().includes(searchTerm.toLowerCase()));
+    useEffect(()=>{
+        dispatch(fetchTodos());
+    }, [dispatch]);
+
+    if(loading) return <Text>Loading ...</Text>
+    if(error) return <Text>Error : {error}</Text>
+
+    const filteredTodos = (items || []).filter(item => item.job.toLowerCase().includes(searchTerm.toLowerCase()));
 
     return (
         <View style = {styles.container}>
@@ -55,7 +75,7 @@ const ListTodo = () => {
                     <FlatList
                         data={filteredTodos}
                         keyExtractor={(item) => item.id}
-                        renderItem={({item}) => <Item id = {item.id} job = {item.job}/>}
+                        renderItem={({item}) => <Item item={item}/>}
                     />
                 </ScrollView>
             </View>
