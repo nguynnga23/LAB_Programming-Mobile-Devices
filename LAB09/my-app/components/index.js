@@ -7,7 +7,6 @@ import BikeDetail from "./BikeDetail.js"
 import AddBike from "./AddBike.js";
 export default function index() {
   const Tab = createBottomTabNavigator();
-  
   return (
     <NavigationContainer independent={true}>
       <Tab.Navigator initialRouteName = "GetStarted"

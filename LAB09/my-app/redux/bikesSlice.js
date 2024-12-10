@@ -31,11 +31,14 @@ const bikesSlice = createSlice({
   name: 'bikes',
   initialState: {
     items: [],
+    currentItem: null,
     loading: false,
     error: null,
   },
   reducers: {
-
+    setCurrentItem: (state, action) => {
+      state.currentItem = action.payload;
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -54,5 +57,5 @@ const bikesSlice = createSlice({
   },
 });
 
-export const { addBike } = bikesSlice.actions;
+export const { addBike, setCurrentItem } = bikesSlice.actions;
 export default bikesSlice.reducer;

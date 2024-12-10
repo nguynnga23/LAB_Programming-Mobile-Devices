@@ -6,8 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 
 export default function AddBike() {
   const dispatch = useDispatch();
-  const navigation = useNavigation()
-
+  const navigation = useNavigation();
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [imgPath, setImgPath] = useState('');

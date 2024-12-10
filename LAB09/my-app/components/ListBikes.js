@@ -1,11 +1,16 @@
-import React, { useEffect } from "react";
+import React, { use, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchBikes } from "../redux/bikesSlice"; // Import action fetchBikes từ bikesSlice
+import { fetchBikes, setCurrentItem } from "../redux/bikesSlice"; // Import action fetchBikes từ bikesSlice
 
-const Item = ({ imgPath, name, price }) => {
+const Item = ({item}) => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+  const handlePress = () =>{
+      dispatch(setCurrentItem(item));
+      navigation.navigate("BikeDetail");
+  }
   return (
     <TouchableOpacity
       style={{
@@ -16,7 +21,7 @@ const Item = ({ imgPath, name, price }) => {
         margin: 7,
         width: 200,
       }}
-      onPress={() => navigation.navigate("BikeDetail")}
+      onPress={handlePress}
     >
       <Image
         style={{
@@ -29,10 +34,10 @@ const Item = ({ imgPath, name, price }) => {
       <Image
         style={{
           margin: 15,
-          width: 130,
-          height: 130
+          width: 150,
+          height: 170
         }}
-        source={{uri:imgPath}}
+        source={{uri:item.imgPath}}
       />
       <Text
         style={{
@@ -42,7 +47,7 @@ const Item = ({ imgPath, name, price }) => {
           color: "#00000099",
         }}
       >
-        {name}
+        {item.name}
       </Text>
       <Text
         style={{
@@ -52,7 +57,7 @@ const Item = ({ imgPath, name, price }) => {
         }}
       >
         <Image source={require("../assets/$.png")} />
-        {price}
+        {item.price}
       </Text>
     </TouchableOpacity>
   );
@@ -101,7 +106,7 @@ export default function ListBikes() {
         <FlatList
           data={items}
           renderItem={({ item }) => (
-            <Item imgPath={item.imgPath} name={item.name} price={item.price} />
+            <Item item={item} />
           )}
           keyExtractor={(item) => item.id}
           numColumns={2}

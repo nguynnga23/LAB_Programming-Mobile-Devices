@@ -1,5 +1,12 @@
 import {View, Text, StyleSheet, FlatList, Image, TouchableOpacity, ScrollView} from "react-native"
+import { useNavigation } from "@react-navigation/native";
+import { useSelector } from "react-redux";
 export default function BikeDetail(){
+ const navigation = useNavigation();
+ const item = useSelector((state) => state.bikes?.currentItem);
+ if(!item){
+   return <Text>No item</Text>
+ }
  return(
    <ScrollView>
     <View style={{
@@ -14,7 +21,8 @@ export default function BikeDetail(){
          alignItems: "center",
          borderRadius: 10,
       }}>
-         <Image source={require("../assets/bione-removebg-preview.png")}/>
+         {/* <Image source={require("../assets/bione-removebg-preview.png")}/> */}
+         <Image style={{width: 300, height: 350}} source={{uri:item.imgPath}}/>
       </View>
       <View style={{
          flex: 1,
@@ -27,13 +35,13 @@ export default function BikeDetail(){
                fontSize: 35,
                fontWeight: 500,
                paddingVertical: 15
-            }}>Pina Mountain</Text>
+            }}>{item.name}</Text>
 
             <Text style={{
                fontSize: 25,
                color: "#00000096",
                fontWeight: 600
-            }}>15% OFF I 350$ <Text style={{
+            }}>15% OFF I {item.price} <Text style={{
                color: "#000",
                textDecorationLine: "line-through",
                paddingLeft: 30
@@ -69,7 +77,12 @@ export default function BikeDetail(){
                borderRadius: 30,
                justifyContent: "center",
                width: "80%"
-            }}>
+            }}
+               onPress={()=>{
+                  navigation.navigate("ListBikes");
+               }}
+            
+            >
                <Text style={{
                   color: "#fff",
                   fontSize: 25,
